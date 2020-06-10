@@ -8,6 +8,8 @@ private:
 public:
     Board();
     bool PlayerMove(char aPlayer, int aX, int aY);
-    bool CheckVictory(char aPlayer, int aX, int aY);
+
+    bool CheckVictory(char aPlayer);
+    
     void outputBoard();
 };

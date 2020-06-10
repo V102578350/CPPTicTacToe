@@ -7,6 +7,7 @@ TicTacToe::TicTacToe()
 
 void TicTacToe::RunGame()
 {
+    char lWinner;
     while(!fGameOver)
     {
         //variables used for declaring placement
@@ -19,7 +20,7 @@ void TicTacToe::RunGame()
         {
             do
             {
-                system("clear");
+                system("clear"); //windows user change to cls
                 if(!lMoveSuccess)
                 {
                     std::cout << "Please choose a valid move!" << std::endl;
@@ -36,12 +37,23 @@ void TicTacToe::RunGame()
                     lMoveSuccess = false;
                 else
                     lMoveSuccess = true;
+
                     
             } while(!lMoveSuccess);
+
+            if(fBoard.CheckVictory(lPlayers[i])) 
+            {
+                fGameOver = true;
+                lWinner = lPlayers[i];
+                break;
+            }
         }
 
-
-
-
+        system("clear"); //windows user change to cls
+        std::cout << std::endl;
+        std::cout << "Player ( " << lWinner << " ) - is the Winner!!!" << std::endl;
+        fBoard.outputBoard();
     }
+
+
 }

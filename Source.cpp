@@ -3,10 +3,8 @@
 
 int main() 
 {
-
     TicTacToe ttt;
-
+    
     ttt.RunGame();
-    
-    
+
 }

@@ -1,3 +1,4 @@
+
 #include "Board.h"
 
 Board::Board() 
@@ -24,9 +25,57 @@ bool Board::PlayerMove(char aPlayer, int aX, int aY)
     return false;
 }
 
-bool Board::CheckVictory(char aPlayer, int aX, int aY)
+bool Board::CheckVictory(char aPlayer)
 {
-    
+    bool result = false;
+
+    //Check Column
+    if(!result)
+    {
+        for(size_t i = 0; i < 3; i++)
+        {
+            if(fBoard[i][0] == aPlayer && fBoard[i][1] == aPlayer &&
+                fBoard[i][2] == aPlayer)
+            {
+                result = true;
+                break;
+            }
+        }
+    }
+
+    //Check Rows
+    if(!result)
+    {
+        for(size_t i = 0; i < 3; i++)
+        {
+            if(fBoard[0][i] == aPlayer && fBoard[1][i] == aPlayer &&
+                fBoard[2][i] == aPlayer)
+            {
+                result = true;
+                break;
+            }
+        }
+    }
+
+    //Check Diagonals
+    if(!result)
+    {
+        if(fBoard[0][0] == aPlayer && fBoard[1][1] == aPlayer &&
+            fBoard[2][2] == aPlayer)
+        {
+            result = true;
+        }
+    }
+        if(!result)
+    {
+        if(fBoard[0][2] == aPlayer && fBoard[1][1] == aPlayer &&
+            fBoard[2][0] == aPlayer)
+        {
+            result = true;
+        }
+    }
+
+    return result;
 }
 
 void Board::outputBoard()

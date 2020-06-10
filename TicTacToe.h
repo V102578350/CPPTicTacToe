@@ -1,6 +1,5 @@
-
-#include "Board.h"
 #include <iostream>
+#include "Board.h"
 
 class TicTacToe
 {
